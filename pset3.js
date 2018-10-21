@@ -5,9 +5,20 @@
     @desc - get the middle item of an array
             if even number of elements, return the middle TWO items
             
-    @example - getMiddle([1,2,3); // [3]
+    @example - getMiddle([1,2,3); // [2]
                getMiddle([1,2,3,4]); // [2,3]
 */
+console.log("------getMiddle---------");
+
+function getMiddle(arr){
+    if(arr.length % 2 === 0){
+        mid1 = arr[Math.floor((arr.length-1) / 2)]
+        mid2 = arr[Math.ceil((arr.length-1) / 2)]
+        return `[${mid1},${mid2}]`
+    }
+    else return `[${arr[(arr.length-1)/2]}]`
+}
+console.log(getMiddle([1,2,3]));
 
 /*
     @func addToMiddle
@@ -17,9 +28,25 @@
     @desc - add element to the middle of array
             if odd number of elements, add after middle
             
-    @example - addToMiddle([1,2,3], 0); // [1,2,0,3];
+    @example - addToMiddle([1,2,3,4,5], 0); // [1,2,0,3];
                addToMiddle([1,2,3,4], 0); // [1,2,0,3,4]
 */
+function addToMiddle(arr,element){
+    let mid = 0
+    mid = (arr.length % 2 === 0) ? arr.length / 2 : Math.ceil(arr.length / 2)
+    let arr2 = []
+    
+    for(let i=0;i<arr.length;i++){
+        if(i===mid){
+            arr2.push(element)
+            
+        }
+        arr2.push(arr[i])
+    }
+    return arr2
+    
+}
+console.log(addToMiddle([1,2,3,4,5,6,7], 0));
 
 /*
     @func hasAtSymbol
@@ -94,7 +121,6 @@
     @desc - rounds to the decimalPlaces
     @example - roundToN(1123.1234, 3); // 1123.123
 */
-
 /*
     @func addArrays
     @param {array} arrays
