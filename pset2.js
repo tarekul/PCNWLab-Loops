@@ -59,6 +59,7 @@ function removeOdds(arr){
 }
 
 console.log(removeOdds([1,2,3,4]));
+console.log("------addSquares-------");
 
 /*
     @func addSquares
@@ -69,11 +70,11 @@ console.log(removeOdds([1,2,3,4]));
         addSquares([1,2,3,4); // [1,2,3,4,1,4,9,16]
 */
 function addSquares(arr){
-    arr2 = arr.map((current) => current ** 2 )
-    for(index in arr2){
-        arr.push(arr2[index])
+    arr2 = [...arr]
+    for(let i=0;i<arr.length;i++){
+        arr2.push(arr[i] ** 2)
     }
-    return arr
+    return arr2
 }
 
 console.log(addSquares([1,2,3,4]));

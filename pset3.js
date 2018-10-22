@@ -56,6 +56,14 @@ console.log(addToMiddle([1,2,3,4,5,6,7], 0));
     @example - hasAtSymbol('taq@karim.com'); // true
                hasAtSymbol('foobar'); // false
 */
+function hasAtSymbol(email){
+    for(index in email){
+        if(email[index] === '@') return true
+    }
+    return false
+}
+
+console.log(hasAtSymbol('taq@karim.com'));
 
 /*
     @func capitalize
@@ -66,6 +74,12 @@ console.log(addToMiddle([1,2,3,4,5,6,7], 0));
     @example - capitalize('taq'); // 'Taq'
                capitalize('Taq'); // 'Taq'
 */
+function capitalize(str){
+    if(typeof(str)!='string') throw new console.error("Not a string");
+    return str.charAt(0).toUpperCase() + str.slice(1)
+}
+
+console.log(capitalize('mo'));
 
 /*
     @func isAllUpperCased
@@ -76,6 +90,14 @@ console.log(addToMiddle([1,2,3,4,5,6,7], 0));
     @example isAllUpperCased('TAQ'); // true
              isAllUpperCased('tAq'); // false
 */
+function isAllUpperCased(str){
+    newStr = ""
+    for(let i=0;i<str.length;i++){
+        newStr += str.charAt(i).toUpperCase()
+    }
+    return newStr
+}
+console.log(isAllUpperCased('Taq'));
 
 /*
     @func capitalizeEachWord
@@ -86,6 +108,7 @@ console.log(addToMiddle([1,2,3,4,5,6,7], 0));
     @example - capitalizeEachWord('the cow jumped over the fence')
                // 'The Cow Jumped Over The Fence'
 */
+
 
 /*
     @func capitalizeEachWordWithExceptions
