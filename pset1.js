@@ -25,7 +25,7 @@ console.log(average([1,2,3,4]));
 */
 console.log("------squareEach function--------");
 function squareEach(arr){
-    return arr.map((current,index) => arr[index] ** 2)
+    return arr.map((element,index) => arr[index] ** 2)
 }
 console.log(squareEach([1,2,3,4]));
 
@@ -59,11 +59,17 @@ console.log("------negateArr-------------");
     @example
         negateArr([1,2,3,4]); // [-1,-2,-3,-4]
 */
+function squareEach(arr){
+    return arr.map((element,index) => arr[index] ** 2)
+}
 function negateArr(arr){
-    for(i=0;i<arr.length;i++){
-        arr[i] = -1 * arr[i]
-    }
-    return arr
+    // for(i=0;i<arr.length;i++){
+    //     arr[i] = -1 * arr[i]
+    // }
+
+    const negArr = arr.map((ele,index) => {
+         return -1 * ele; });
+    return negArr;
 }
 console.log(negateArr([1,2,3,4]));
 console.log("-------reverseArr-------");
@@ -76,10 +82,15 @@ console.log("-------reverseArr-------");
     @example - reverseArr([1,2,3,4]); // [4,3,2,1]
 */
 function reverseArr(arr){
-    arrCopy = []
-    for(i=arr.length-1;i>=0;i--){
-        arrCopy.push(arr[i])
-    }
+    // arrCopy = []
+    // for(i=arr.length-1;i>=0;i--){
+    //     arrCopy.push(arr[i])
+    // }
+    // return arrCopy
+
+    const arrCopy = arr.map((element,index) => {
+        return arr[arr.length -1 - index]
+    })
     return arrCopy
 }
 console.log(reverseArr([1,2,3,4]));
