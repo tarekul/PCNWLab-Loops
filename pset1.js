@@ -10,7 +10,7 @@ console.log("------average function--------");
 
 average = (arr) =>{
     let sum = 0
-    arr.map((current,index) => sum += arr[index])
+    arr.forEach((element) => sum += element)
     return sum/arr.length
 }
 
