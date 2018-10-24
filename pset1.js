@@ -16,6 +16,15 @@ average = (arr) =>{
 
 console.log(average([1,2,3,4]));
 
+average2 = (arr) => {
+    let arr2 = arr.reduce((acc,element) => {
+        return acc += element
+    },0)
+   return arr2/arr.length
+}
+console.log(average2([1,2,3,4]));
+
+
 /*
     @func squareEach
     @param {array} arr
@@ -28,6 +37,14 @@ function squareEach(arr){
     return arr.map((element,index) => arr[index] ** 2)
 }
 console.log(squareEach([1,2,3,4]));
+
+squareEach2 = (arr) =>{
+    return arr.reduce((acc,element) =>{
+        return acc.concat(element ** 2)
+    },[])
+}
+console.log(squareEach2([5,6,7,8]));
+
 
 console.log("------averageSquare function--------");
 /*
@@ -49,6 +66,7 @@ function averageSquare(arr){
 
 console.log(averageSquare([1,2,3,4]))
 
+
 console.log("------negateArr-------------");
 
 /*
@@ -59,9 +77,6 @@ console.log("------negateArr-------------");
     @example
         negateArr([1,2,3,4]); // [-1,-2,-3,-4]
 */
-function squareEach(arr){
-    return arr.map((element,index) => arr[index] ** 2)
-}
 function negateArr(arr){
     // for(i=0;i<arr.length;i++){
     //     arr[i] = -1 * arr[i]
@@ -72,6 +87,15 @@ function negateArr(arr){
     return negArr;
 }
 console.log(negateArr([1,2,3,4]));
+
+function negateArr2(arr){
+    return arr.reduce((acc,element) => {
+        return element > 0 ? acc.concat(element * -1) : acc.concat(element)
+    },[])
+}
+
+console.log(negateArr2([5,-6,7,-8]));
+
 console.log("-------reverseArr-------");
 
 /*
@@ -88,12 +112,19 @@ function reverseArr(arr){
     // }
     // return arrCopy
 
-    const arrCopy = arr.map((element,index) => {
-        return arr[arr.length -1 - index]
-    })
+    const arrCopy = arr.map((element,index) => { return arr[arr.length -1 - index] })
     return arrCopy
 }
+
+function reverseArr2(arr){
+    return arr.reduce((acc,elem,index) => {
+        return acc.concat(arr[arr.length - 1 -index])
+    },[])
+}
+
 console.log(reverseArr([1,2,3,4]));
+console.log(reverseArr2([5,6,7,8]));
+
 
 console.log("-------negateBack----");
 /*
