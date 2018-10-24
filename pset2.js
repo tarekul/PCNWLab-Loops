@@ -6,13 +6,14 @@
     @example - removeNegatives([-3,-2,1,2,3,-4]); // [3,2,1,2,3,4]
 */
 removeNegatives = (arr) =>{
-    const arrCopy = arr.slice(0)
-    for(i=0;i<arr.length;i++){
-        if(arr[i] < 0){arrCopy[i] = arr[i] * -1 }
-        else{ arrCopy[i] = arr[i]}
+    // const arrCopy = arr.slice(0)
+    // for(i=0;i<arr.length;i++){
+    //     if(arr[i] < 0){arrCopy[i] = arr[i] * -1 }
+    //     else{ arrCopy[i] = arr[i]}
         
-    }
-    return arrCopy
+    // }
+    const arr2 = arr.filter((element)=> element >= 0)
+    return arr2
 }
 console.log("removeNegatives");
 
@@ -30,10 +31,13 @@ console.log(removeNegatives([-3,-2,1,2,3,-4]))
         findVal([1,2,3,4], 4); // 3
         findVal([1,2,3,4], 9); // -1
 */
+console.log("-----findval-----");
+
 function findVal(arr,val){
-    for(index of arr){
-        if(val == arr[index]) return index
-    }
+    arr.forEach(element => {
+        if(val === element) return element    
+    
+    });
     return -1
 }
 
@@ -50,12 +54,18 @@ console.log(findVal([1,2,3,4], 3))
         removeOdds([1,2,3,4]); // [2,4]
         removeOdds([1,"2",3,4]); // [4]
 */
+console.log("-----removeOdds-----");
+
 function removeOdds(arr){
-    const arr2 = []
-    for(index in arr){
-        if(arr[index] % 2 == 0) arr2.push(arr[index])
-    }
-    return arr2
+    // const arr2 = []
+    // for(index in arr){
+    //     if(arr[index] % 2 == 0) arr2.push(arr[index])
+    // }
+    // return arr2
+
+    return arr.filter((element) => {
+        if(element % 2 ===0) return element
+    })
 }
 
 console.log(removeOdds([1,2,3,4]));
@@ -70,11 +80,17 @@ console.log("------addSquares-------");
         addSquares([1,2,3,4); // [1,2,3,4,1,4,9,16]
 */
 function addSquares(arr){
-    arr2 = [...arr]
-    for(let i=0;i<arr.length;i++){
-        arr2.push(arr[i] ** 2)
-    }
-    return arr2
+    // arr2 = [...arr]
+    // for(let i=0;i<arr.length;i++){
+    //     arr2.push(arr[i] ** 2)
+    // }
+    // return arr2
+
+    arr2 = arr.map((element) => {
+        return element ** 2
+    })
+
+    return arr.concat(arr2)
 }
 
 console.log(addSquares([1,2,3,4]));
@@ -87,12 +103,18 @@ console.log(addSquares([1,2,3,4]));
     @example - doubleify([1,2,3,4); // [1,1,2,2,3,3,4,4]
 */
 function doubleify(arr){
+    // arr2 = []
+    // for(i in arr){
+    //     arr2.push(arr[i])
+    //     arr2.push(arr[i] ** 2)
+    //     arr2.push("space")
+    // }
+    // return arr2
+
     arr2 = []
-    for(i in arr){
-        arr2.push(arr[i])
-        arr2.push(arr[i] ** 2)
-        arr2.push("space")
-    }
+    arr.forEach((element) => {
+       arr2.push(element,`${element ** 2}`)
+    })
     return arr2
 }
 console.log(doubleify([1,2,3,4]));
@@ -106,12 +128,11 @@ console.log(doubleify([1,2,3,4]));
 */
 
 function findMax(arr){
-    let hold = arr[i]
-    for(i in arr){
-        i++
-        if(hold < arr[i]) hold = arr[i]
-    }
-    return hold
+    let max = arr[0]
+    arr.forEach((element) =>{
+        if(element > max)  max = element
+    })
+    return max
 }
 console.log(findMax([1,2,3,99,4]));
 
